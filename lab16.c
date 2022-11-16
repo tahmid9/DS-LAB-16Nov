@@ -24,50 +24,35 @@ struct node* newNode(int data)
 
 void printInorder(struct node* node)
 {
-    if (node == NULL)
-        return;
-
-    /* first recur on left child */
+    if (node){
     printInorder(node->left);
-
-    /* then print the data of node */
     printf("%d ", node->data);
+    printInorder(node->right);}
 
-    /* now recur on right child */
-    printInorder(node->right);
+
 }
 
 void printPreorder(struct node* node)
 {
-    if (node == NULL)
-        return;
-
-    /* first print data of node */
+    if (node)
+        {
     printf("%d ", node->data);
-
-    /* then recur on left subtree */
     printPreorder(node->left);
-
-    /* now recur on right subtree */
     printPreorder(node->right);
+        }
 }
 
 void printPostorder(struct node* node)
 {
-    if (node == NULL)
-        return;
-
-    // first recur on left subtree
+    if (node)
+        {
     printPostorder(node->left);
-
-    // then recur on right subtree
     printPostorder(node->right);
-
-    // now deal with the node
     printf("%d ", node->data);
+        }
 }
 
-/* Driver code*/
+
 int main()
 {
     struct node* root = newNode(6);
@@ -76,8 +61,8 @@ int main()
     root->left->left = newNode(3);
     root->left->right = newNode(4);
 
-      // calling function
-      printf("\nInorder traversal of binary tree is \n");
+
+      printf("Inorder traversal of binary tree is \n");
     printInorder(root);
 
     printf("\nPreorder traversal of binary tree is \n");
